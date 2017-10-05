@@ -1,0 +1,44 @@
+/*DreamForm*/
+.add_dream{
+  background-color: #A4BDD3;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+button.add_btn{
+  margin: 5px;
+}
+
+input.add_input{
+  margin: 5px;
+}
+
+p.char_count{
+  text-align: right;
+}
+
+/*DreamFeed*/
+.dream_feed{
+  background-color: #A4BDD3;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+/*Dream*/
+.dream{
+  margin: 1px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #B8D1DD;
+}
+
+p.dream_content_time{
+  padding: 5px;
+  color: white;
+}
+
+p.dream_content{
+  font-size: 16px;
+  padding: 5px;
+  margin: 5px;
+}
