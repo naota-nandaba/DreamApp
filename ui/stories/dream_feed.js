@@ -15,13 +15,12 @@ const DreamFeed = React.createClass({
   },
   render() {
     const dreamList = this.state.dreams.map((val) =>(
-      <Dream value={val}
-              createdAt="10/5/17" />
+      <Dream value={val} />
     ));
 
     return (
         <div className="container">
-          <div className="col-xs-6 jumbotron row dream_feed">
+          <div className="col-xs-12 jumbotron row dream_feed">
             {dreamList}
           </div>
       </div>

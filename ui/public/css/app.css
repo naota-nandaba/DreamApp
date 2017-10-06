@@ -1,27 +1,121 @@
+@media (min-width: 500px) {
+    .container{
+        max-width: 500px;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body{
+  background-color: #487190;
+  font-family: 'Helvetica';
+}
+
+/*Container*/
+div.app{
+  background-color: #A2BDD1;
+}
+
+/*NavBar*/
+
+.navbar{
+  margin-top: 10px;
+  background-color: #2C5778;
+  font-family: Helvetica;
+}
+
+.nav_contain{
+  background-color: #2C5778;
+}
+
+.navbar-header{
+  background-color: #2C5778;
+}
+
+ul.nav-pills{
+  margin: 5px;
+}
+
+li{
+  color: white;
+}
+
+li.active{
+  font-family: Helvetica;
+}
+
+li.unactive{
+  font-family: Helvetica;
+}
+
+a.myMu{
+  font-family: Helvetica;
+  background-color: #46728D;
+  font-size: 14px;
+  color: white;
+}
+
+a.interpret{
+  font-family: Helvetica;
+  font-size: 14px;
+  border: 1px #B2C7D3 solid;
+  color: white;
+}
+
+a.interpret:hover{
+  color: black;
+}
+
+a.whyMu{
+  font-family: Helvetica;
+  font-size: 14px;
+  border: 1px #B2C7D3 solid;
+  color: white;
+}
+
+a.whyMu:hover{
+  color: black;
+}
+
 /*DreamForm*/
 .add_dream{
   background-color: #A4BDD3;
   padding: 15px;
-  margin-top: 15px;
+  margin: auto;
+  margin-top: 25px;
+  align-self: center;
+  justify-content: center;
 }
 
 button.add_btn{
   margin: 5px;
+  font-family: Helvetica;
 }
 
 input.add_input{
   margin: 5px;
+  font-family: Helvetica;
+  font-size: 14px;
 }
 
 p.char_count{
   text-align: right;
+  align-items: right;
+  align-self: right;
+  justify-content: right;
+  font-family: Helvetica;
+  font-size: 14px;
 }
 
 /*DreamFeed*/
+
 .dream_feed{
   background-color: #A4BDD3;
   padding: 15px;
-  margin-top: 15px;
+  margin: auto;
+  align-self: center;
+  justify-content: center;
 }
 
 /*Dream*/
@@ -29,16 +123,32 @@ p.char_count{
   margin: 1px;
   border-style: solid;
   border-width: 2px;
-  border-color: #B8D1DD;
+  background-color: #B8D1DD;
+  border-color: #B2C7D3;
 }
 
-p.dream_content_time{
-  padding: 5px;
-  color: white;
-}
-
-p.dream_content{
+/*p.dream_content_time{
   font-size: 16px;
   padding: 5px;
+  color: white;
+}*/
+
+p.dream_content{
+  font-size: 14px;
+  padding: 5px;
   margin: 5px;
+}
+
+/*Footer*/
+
+div.foot_contain{
+  background-color: #2C5778;
+}
+
+a.footer-brand{
+  align-content: right;
+  justify-content: right;
+  font-family: Helvetica;
+  font-size: 14px;
+  color: white;
 }

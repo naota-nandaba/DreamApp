@@ -1,3 +1,5 @@
 require('./add_dream')
 require('./dream_feed')
 require('./a_dream')
+require('./navbar')
+require('./footer')
