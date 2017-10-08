@@ -88,6 +88,9 @@ app.get('/', function(req, res) {
           for (var j = 0; j < $doc.children().length; j++) {
             if ($doc.children().eq(j).text().match(regex)) {
               console.log($doc.children().eq(j).text())
+              console.log("")
+              console.log("Sending...")
+              res.send($doc.children().eq(j).text())
             }
           }
 
@@ -99,15 +102,11 @@ app.get('/', function(req, res) {
 
       //Promise end
     })
-    // console.log($doc)
-    // console.log(". . . . . . . . .")
-    // console.log(interpretText)
-    // res.send(interpretText)
-    //splitStr.forEach end
+
+    //newStr.forEach end
   })
 
   //app.get '/' end
-
 });
 
 //CATCH all
