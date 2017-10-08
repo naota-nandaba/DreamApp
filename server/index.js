@@ -33,24 +33,38 @@ app.use(cookieSession({
 
 app.get('/', function(req, res) {
 
-  var str = "frog"
+  var str = "Macaroni"
 
   var splitStr = str.split(" ");
 
-  console.log(splitStr)
+  splitStr.forEach(function(el){
+    el.replace(/\.$/, " ");
+  })
 
+  var newStr = splitStr.filter(function (el){
+    return el !== 'A'
+    && el !== 'the'
+    && el !== 'and'
+    && el !== 'to'
+    && el !== 'a'
+    && el !== 'on'
+    && el !== 'I'
+    && el !== 'was'
+    && el !== 'an'
+    && el !== 'that'
+    && el !== 'is';
+  })
 
-  splitStr.forEach(function(el) {
+  console.log(newStr);
+  newStr.forEach(function(el) {
 
     console.log(el)
-    console.log('http://dreammoods.com/cgibin/dreamdictionarysearch.pl?method=exact&header=dreamsymbol&search='
-    + el);
+    console.log('http://dreammoods.com/cgibin/dreamdictionarysearch.pl?method=exact&header=dreamsymbol&search=' + el);
     console.log("Setting Promise")
 
     return new Promise(function(resolve, reject) {
 
-      request('http://dreammoods.com/cgibin/dreamdictionarysearch.pl?method=exact&header=dreamsymbol&search='
-      + el, {
+      request('http://dreammoods.com/cgibin/dreamdictionarysearch.pl?method=exact&header=dreamsymbol&search=' + el, {
         timeout: 2000
       }, function interpreter(err, response, body) {
 
@@ -65,16 +79,17 @@ app.get('/', function(req, res) {
 
           const $ = cheerio.load(body);
 
-          $title = $('font[size=4]').filter(function(i, el) {
-              // this === el
-              return $(this).attr('color') === '#000000';
-            }).text()
+          el = el.charAt(0).toUpperCase() + (el.slice(1, el.length));
 
-          //
-          // $doc = $('td[width=750]');
-          //
-          // console.log($doc.first().text())
-          // var interpretText = $doc.first().text();
+          $doc = $('td[width=750]');
+
+          var regex = new RegExp("\\b" + el + "\\b")
+
+          for (var j = 0; j < $doc.children().length; j++) {
+            if ($doc.children().eq(j).text().match(regex)) {
+              console.log($doc.children().eq(j).text())
+            }
+          }
 
           //request end
         }
@@ -84,22 +99,22 @@ app.get('/', function(req, res) {
 
       //Promise end
     })
-      // console.log($doc)
-      // console.log(". . . . . . . . .")
-      // console.log(interpretText)
-      // res.send(interpretText)
+    // console.log($doc)
+    // console.log(". . . . . . . . .")
+    // console.log(interpretText)
+    // res.send(interpretText)
     //splitStr.forEach end
   })
 
+  //app.get '/' end
 
-//app.get '/' end
 });
 
-    //CATCH all
-    app.use(function(req, res) {
-      res.sendStatus(404);
-    });
+//CATCH all
+app.use(function(req, res) {
+  res.sendStatus(404);
+});
 
-    app.listen(PORT, function() {
-      console.log('RUNNING!', PORT);
-    });
+app.listen(PORT, function() {
+  console.log('RUNNING!', PORT);
+});
