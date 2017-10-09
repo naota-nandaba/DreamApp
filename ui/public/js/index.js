@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import { render } from 'react-dom'
-import { Router, IndexRoute, Route } from 'react-router'
-import { hashHistory } from 'react-router'
+import {render} from 'react-dom'
+import {Router, IndexRoute, Route} from 'react-router'
+import {hashHistory} from 'react-router'
 
 import DreamForm from './add_dream'
 import DreamFeed from './dream_feed'
@@ -17,15 +17,15 @@ import '../css/app.css'
 
 // Wait for the window to load
 
-window.onload = function () {
+window.onload = function() {
   const DreamApp = document.querySelector('#App');
 
   ReactDOM.render(
     <Router history={hashHistory}>
-      <Route path="/" component={App}>
-        <IndexRoute component={Home}/>
-      </Route>
-    </Router>,
-    DreamApp
-  );
+
+    <Route path="/" component={App}>
+      <IndexRoute component={Home}/>
+    </Route>
+
+  </Router>, DreamApp);
 }

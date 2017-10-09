@@ -12,7 +12,6 @@ const Dream = React.createClass({
       <div
         className="dream"
         >
-        {/* <p className="dream_content_time"><b>{this.props.createdAt}</b></p> */}
         <p className="dream_content">{this.props.value}</p>
       </div>
     )
