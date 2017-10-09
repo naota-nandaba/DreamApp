@@ -1,21 +1,28 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-const style = require('../css/app.css');
+import React from 'react'
+import ReactDOM from 'react-dom';
+import { Router, IndexRoute, Route, hashHistory } from 'react-router'
+
+import NavBar from './header'
+
+import 'bootstrap/dist/css/bootstrap.css';
+import '../css/app.css'
 
 const App = React.createClass({
   render: function () {
     return (
-      <h1>Hello world</h1>
+      <div>
+        <div className="container nav_contain">
+        <NavBar />
+        </div>
+
+        <div className="row">
+            {this.props.children}
+        </div>
+
+      </div>
+
     );
   }
 })
 
-// Wait for the window to load
-window.onload = function () {
-  const exampleApp = document.querySelector('#example-app');
-
-  ReactDOM.render(
-    <App/>,
-    exampleApp
-  );
-}
+module.exports = App;

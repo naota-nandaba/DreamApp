@@ -1,17 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const PUBLIC = path.join(__dirname, 'public');
+const APP = path.join(__dirname, 'public', 'js');
+const BUILD = path.join(__dirname, 'public', 'js');
 
 module.exports = {
-  entry: path.join(PUBLIC, 'js', 'app.js'),
+  entry: path.join(APP, 'index.js'),
   output: {
-    path: path.join(PUBLIC, 'js'),
+    path: path.join(BUILD),
     filename: 'bundle.js'
   },
   devServer: {
     hot: true,
-    publicPath: '/public/js/',
+    publicPath: '/public/js',
     open: true
   },
   module: {
@@ -29,8 +30,25 @@ module.exports = {
           { loader: "style-loader" },
           { loader: "css-loader" }
         ]
+      },
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+    use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 4096
+            }
+          }
+        ]
       }
     ]
+  },
+  node: {
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
