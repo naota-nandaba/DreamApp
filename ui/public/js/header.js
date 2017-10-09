@@ -1,12 +1,14 @@
-const React = require('react');
+import React from 'react'
+import ReactDOM from 'react-dom';
+import { Router, IndexRoute, Route, hashHistory } from 'react-router'
 const storiesOf = require('@storybook/react').storiesOf;
+
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/app.css'
 
 const NavBar = React.createClass({
   render: function () {
     return (
-
 
         <nav className="navbar">
 
@@ -18,11 +20,8 @@ const NavBar = React.createClass({
               <li role="presentation"> <a className="whyMu" href="#">Why Mu?</a></li>
             </ul>
 
-            </div>
-
+          </div>
         </nav>
-
-
     )
   }
 })

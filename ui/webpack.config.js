@@ -5,7 +5,7 @@ const APP = path.join(__dirname, 'public', 'js');
 const BUILD = path.join(__dirname, 'public', 'js');
 
 module.exports = {
-  entry: path.join(APP, 'app.js'),
+  entry: path.join(APP, 'index.js'),
   output: {
     path: path.join(BUILD),
     filename: 'bundle.js'
