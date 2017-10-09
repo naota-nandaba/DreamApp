@@ -3,35 +3,71 @@ const app = express();
 
 const PORT = process.env.PORT || 8000;
 
-const Discogs = require('disconnect').Client;
-
-app.set('view engine', 'ejs');
-
+// const knex = require('./middleware/knex');
 const APP_MODE = 'development';
 const Knex = require('knex');
 const dbConfig = require('./knexfile');
 const knex = Knex(dbConfig[APP_MODE]);
 
 const bcrypt = require('bcrypt-as-promised');
-
-const cookieSession = require('cookie-session');
+// const cookieSession = require('cookie-session');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 const request = require('request');
-
 const cheerio = require('cheerio');
 
-app.use(cookieSession({
-  name: 'auth_app_user',
-  keys: ['socure1', 'socure2']
-}));
+// app.use(cookieSession({
+//   name: 'auth_app_user',
+//   keys: ['socure1', 'socure2']
+// }));
+
+//CORS for Client
+app.options('/*', (req, res, next) => {
+  console.log(req.method, req.headers)
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set("Access-Control-Allow-Headers", "Content-Type, authorization");
+  res.set("Access-Control-Allow-Credentials", "true");
+  res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH');
+
+  res.end();
+});
 
 //ROUTING
 
-app.get('/', function(req, res) {
+  //ADD USER
+app.post('/api/users/', function (req, res) {
+
+  bcrypt.hash(req.body.password, 12)
+    .then(function (digest) {
+      // use knex to insert the digested password
+      knex('users')
+      .insert({
+          email: req.body.email,
+          hashed_password: digest
+        }, '*')
+        .then(function (users) {
+           console.log(users)
+          const user = users[0];
+
+          res.send(`Welcome ${user.email}`)
+        })
+    })
+
+    .catch(function (err) {
+      console.log(err);
+      res.send("Error");
+    });
+
+});
+
+  //MAKE POSTS
+app.use('/api', require('./routes/posts'))
+
+  //INTERPRET (SCRAPER)
+app.get('/test', function(req, res) {
 
   var str = "Macaroni"
 
@@ -109,7 +145,7 @@ app.get('/', function(req, res) {
   //app.get '/' end
 });
 
-//CATCH all
+  //CATCH all
 app.use(function(req, res) {
   res.sendStatus(404);
 });
