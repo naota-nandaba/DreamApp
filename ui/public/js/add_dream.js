@@ -38,7 +38,7 @@ const DreamForm = React.createClass({
                       Post</button>
 
               <text
-                className="char_count"
+                className="charCount"
                 style={this.state.char_color}>
                 {this.props.charCount - this.state.post.body.length}</text>
 

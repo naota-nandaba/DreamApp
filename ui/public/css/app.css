@@ -4,12 +4,12 @@
     }
 }
 
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Lato|Raleway');
+
 
 body{
   background-color: #487190;
-  font-family: 'Helvetica';
+  font-family: Helvetica;
 }
 
 /*Container*/
@@ -99,7 +99,7 @@ input.add_input{
   font-size: 14px;
 }
 
-p.char_count{
+p.charCount{
   text-align: right;
   align-items: right;
   align-self: right;
