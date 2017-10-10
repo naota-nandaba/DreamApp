@@ -49,16 +49,15 @@ app.post('/api/users/', function (req, res) {
           hashed_password: digest
         }, '*')
         .then(function (users) {
-           console.log(users)
           const user = users[0];
 
-          res.send(`Welcome ${user.email}`)
+          res.sendStatus(204);
         })
     })
 
     .catch(function (err) {
-      console.log(err);
-      res.send("Error");
+      console.log('api/users/ err:' + err);
+      res.sendStatus(204);
     });
 
 });
@@ -105,7 +104,7 @@ app.get('/test', function(req, res) {
       }, function interpreter(err, response, body) {
 
         if (err) {
-          console.log('Broken');
+          console.log('Interpreter Broken');
           console.log("Logging request errors:")
           console.log(err.code === 'ETIMEDOUT'); //Is it a timeout error?
           console.log(err.connect === true); //Is it a connect timeout error?
