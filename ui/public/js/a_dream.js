@@ -1,6 +1,6 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
 import { Router, IndexRoute, Route, hashHistory } from 'react-router'
+
 const storiesOf = require('@storybook/react').storiesOf;
 
 import 'bootstrap/dist/css/bootstrap.css';

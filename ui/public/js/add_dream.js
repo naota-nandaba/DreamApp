@@ -19,6 +19,7 @@ const DreamForm = React.createClass({
   },
 
   render() {
+
     return (
           <div className="col-xs-12 jumbotron row add_dream">
 
@@ -29,10 +30,10 @@ const DreamForm = React.createClass({
                      placeholder="Your dream"
                      name="body"
                      value={ this.state.post.body }
-                     onChange={ this.onChange && this.updateCount  }
+                     onChange={ this.onChange }
                      />
 
-              <button type="button"
+              <button
                       className="btn btn-primary add_btn"
                       disabled={this.state.disabled}>
                       Post</button>
@@ -49,7 +50,20 @@ const DreamForm = React.createClass({
     );
   },
 
-  updateCount(e) {
+  save: function (e) {
+    e.preventDefault();
+    console.log('submitting')
+    this.setState(({post}) => {
+      this.state.client
+        .createPost(post)
+        .then((post) => {
+           this.props.onSave(post)
+        })
+    })
+  },
+
+  onChange(e) {
+
     if (e.target.value.length <= 140){
       this.setState({
         disabled: "",
@@ -62,21 +76,9 @@ const DreamForm = React.createClass({
         char_color: {color: 'red'}
       });
     }
-  },
 
-  save(e) {
-    e.preventDefault();
-    console.log('submitting')
-    this.setState(({post}) => {
-      this.state.client
-        .createPost(post)
-        .then((post) => {
-          this.props.router.replace('/posts?refresh=true');
-        })
-    })
-  },
+    console.log(this.state.post.body);
 
-  onChange(e) {
     const {name, value} = e.target;
 
     this.setState(({post}) => {
