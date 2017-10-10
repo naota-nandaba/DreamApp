@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
 import { Router, IndexRoute, Route, hashHistory } from 'react-router'
 const storiesOf = require('@storybook/react').storiesOf;
 
@@ -11,28 +10,11 @@ import '../css/app.css'
 
 const DreamFeed = React.createClass({
 
-  getInitialState() {
-      return {
-        posts: ["Test dream."],
-        client: Utils.createClient()
-      };
-  },
-
-  componentWillMount: function () {
-    this.refreshPosts();
-  },
-
   render() {
-    const {query, pathname} = this.props.location;
 
-    if (query.refresh) {
-      this.refreshPosts();
-      console.log('Refreshing');
-    }
-
-    const dreamList = this.state.posts.map((val) =>(
+    const dreamList = this.props.posts.map((val) =>(
       <div>
-      <Dream value={val} />
+      <Dream value={val.body} />
         <p></p>
       </div>
     ));
@@ -44,18 +26,17 @@ const DreamFeed = React.createClass({
     )
   },
 
-  isEditing: function (pathname) {
-    return !(/posts\/new/.exec(pathname))
-  },
-
+  /*
   refreshPosts: function () {
     this.state.client.posts(this.props.params || {})
       .then((posts) => {
         console.log(posts)
-        this.props.router.replace('/posts');
+        // this.props.router.replace('/posts');
         this.setState({posts: posts})
       });
-  }
+      */
+
+  // }
 
 });
 

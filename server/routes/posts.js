@@ -30,7 +30,7 @@ router.get('/posts/:id', function (req, res) {
 router.post('/posts',
   function (req, res) {
     console.log(req.user);
-    Post.create(Object.assign(req.body, {user_id: req.user.id}))
+    Post.create(Object.assign(req.body, {user_id: 1}))
       .then((data) => res.send(JSON.stringify(data)))
       .catch((err) => res.status(500).send(err))
 })

@@ -25,14 +25,23 @@ const cheerio = require('cheerio');
 // }));
 
 //CORS for Client
-app.options('/*', (req, res, next) => {
-  console.log(req.method, req.headers)
-  res.set('Access-Control-Allow-Origin', '*');
-  res.set("Access-Control-Allow-Headers", "Content-Type, authorization");
-  res.set("Access-Control-Allow-Credentials", "true");
-  res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH');
+const OPTIONS = 'OPTIONS';
 
-  res.end();
+// Pull out CORS headers into a constant.
+const CORS_HEADERS = Object.freeze({'Access-Control-Allow-Origin': '*',
+'Access-Control-Allow-Headers': 'Content-Type, authorization',
+'Access-Control-Allow-Credentials': 'true',
+'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH'});
+
+app.use('/*', (req, res, next) => {
+  res.set(CORS_HEADERS);
+
+  if (req.method === OPTIONS) {
+    // Handling for preflight requests
+    res.sendStatus(200);
+  } else {
+    next();
+  }
 });
 
 //ROUTING
