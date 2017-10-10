@@ -1,0 +1,90 @@
+import React from 'react'
+import Utils from './utils';
+const storiesOf = require('@storybook/react').storiesOf;
+
+import 'bootstrap/dist/css/bootstrap.css';
+import '../css/app.css'
+
+const DreamForm = React.createClass({
+
+  getInitialState() {
+      return {
+        post: {
+          body: '',
+        },
+        client: Utils.createClient(),
+        disabled: '',
+        char_color: {color: 'black'},
+      }
+  },
+
+  render() {
+    return (
+          <div className="col-xs-12 jumbotron row add_dream">
+
+            <form onSubmit={this.save}>
+
+              <input className="form-control add_input"
+                     type="text"
+                     placeholder="Your dream"
+                     name="body"
+                     value={ this.state.post.body }
+                     onChange={ this.onChange && this.updateCount  }
+                     />
+
+              <button type="button"
+                      className="btn btn-primary add_btn"
+                      disabled={this.state.disabled}>
+                      Post</button>
+
+              <text
+                className="char_count"
+                style={this.state.char_color}>
+                {this.props.charCount - this.state.post.body.length}</text>
+
+          </form>
+
+        </div>
+
+    );
+  },
+
+  updateCount(e) {
+    if (e.target.value.length <= 140){
+      this.setState({
+        disabled: "",
+        char_color: {color: 'black'}
+      });
+    }
+    if (e.target.value.length > 140){
+      this.setState({
+        disabled: "disabled",
+        char_color: {color: 'red'}
+      });
+    }
+  },
+
+  save(e) {
+    e.preventDefault();
+    console.log('submitting')
+    this.setState(({post}) => {
+      this.state.client
+        .createPost(post)
+        .then((post) => {
+          this.props.router.replace('/posts?refresh=true');
+        })
+    })
+  },
+
+  onChange(e) {
+    const {name, value} = e.target;
+
+    this.setState(({post}) => {
+      return { post: Object.assign({}, post, {[name]: value}) };
+    });
+
+  }
+
+})
+
+module.exports = DreamForm;

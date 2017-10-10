@@ -19,7 +19,7 @@ if (props.value.length > 140) {
 
   return (
       <div className="container">
-        <div className="col-xs-6 jumbotron row add_dream">
+        <div className="col-xs-12 jumbotron row add_dream">
 
         <form>
         <input className="form-control add_input"
@@ -52,7 +52,7 @@ const DreamForm = React.createClass({
   render() {
     return (
         <div className="container">
-          <div className="col-xs-6 jumbotron row add_dream">
+          <div className="col-xs-12 jumbotron row add_dream">
           <form>
           <input className="form-control add_input"
                  type="text"
