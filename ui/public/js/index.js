@@ -12,6 +12,9 @@ import Footer from './footer'
 import Home from './home'
 import App from './app'
 
+import InterpretHome from './i/InterpretHome'
+import InterpretApp from './i/InterpretApp'
+
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/app.css'
 
@@ -25,6 +28,10 @@ window.onload = function() {
 
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
+    </Route>
+
+    <Route path="/interpret" component={InterpretApp}>
+      <IndexRoute component={InterpretHome}/>
     </Route>
 
   </Router>, DreamApp);

@@ -4,10 +4,11 @@
     }
 }
 
-@import url('https://fonts.googleapis.com/css?family=Lato|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
 body{
   background-color: #487190;
-  font-family: Helvetica;
+  font-family: Raleway;
 }
 
 /*Container*/
@@ -20,7 +21,7 @@ div.app{
 .navbar{
   margin-top: 10px;
   background-color: #2C5778;
-  font-family: Helvetica;
+  font-family: Raleway;
 }
 
 .nav_contain{
@@ -28,34 +29,27 @@ div.app{
 }
 
 .navbar-header{
-  background-color: #2C5778;
+  background-color: #FFFFFF;
 }
 
 ul.nav-pills{
   margin: 5px;
-}
-
-li{
   color: white;
 }
 
 li.active{
-  font-family: Helvetica;
-}
-
-li.unactive{
-  font-family: Helvetica;
+  font-family: Raleway;
 }
 
 a.myMu{
-  font-family: Helvetica;
+  font-family: Raleway;
   background-color: #46728D;
   font-size: 14px;
   color: white;
 }
 
 a.interpret{
-  font-family: Helvetica;
+  font-family: Raleway;
   font-size: 14px;
   border: 1px #B2C7D3 solid;
   color: white;
@@ -66,7 +60,7 @@ a.interpret:hover{
 }
 
 a.whyMu{
-  font-family: Helvetica;
+  font-family: Raleway;
   font-size: 14px;
   border: 1px #B2C7D3 solid;
   color: white;
@@ -88,12 +82,12 @@ a.whyMu:hover{
 
 button.add_btn{
   margin: 5px;
-  font-family: Helvetica;
+  font-family: Raleway;
 }
 
 input.add_input{
   margin: 5px;
-  font-family: Helvetica;
+  font-family: Raleway;
   font-size: 14px;
 }
 
@@ -102,7 +96,7 @@ p.char_count{
   align-items: right;
   align-self: right;
   justify-content: right;
-  font-family: Helvetica;
+  font-family: Raleway;
   font-size: 14px;
 }
 
@@ -125,12 +119,6 @@ p.char_count{
   border-color: #B2C7D3;
 }
 
-/*p.dream_content_time{
-  font-size: 16px;
-  padding: 5px;
-  color: white;
-}*/
-
 p.dream_content{
   font-size: 14px;
   padding: 5px;
@@ -146,7 +134,7 @@ div.foot_contain{
 a.footer-brand{
   align-content: right;
   justify-content: right;
-  font-family: Helvetica;
+  font-family: Raleway;
   font-size: 14px;
   color: white;
 }
