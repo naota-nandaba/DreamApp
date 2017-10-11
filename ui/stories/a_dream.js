@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../public/css/app.css'
 
 const Dream = React.createClass({
-
   render: function () {
     return (
       <div
@@ -16,11 +15,12 @@ const Dream = React.createClass({
   }
 })
 
+
 storiesOf('a Dream', module)
 .add('(Stateless) Default', () => (
   <div className="container">
     <div className="col-xs-12 jumbotron row dream_feed">
-  <Dream value="A hard-coded dream." createdAt="10/5/17" />
+  <Dream value="A hard-coded dream." />
     </div>
   </div>
 ))

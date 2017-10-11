@@ -2,17 +2,18 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import { Router, IndexRoute, Route, hashHistory } from 'react-router'
 
-import NavBar from './header'
+import InterpretNavBar from './InterpretHeader'
+import NavBar from '../header'
 
 import 'bootstrap/dist/css/bootstrap.css';
-import '../css/app.css'
+import '../../css/app.css'
 
-const App = React.createClass({
+const InterpretApp = React.createClass({
   render: function () {
     return (
       <div>
         <div className="container nav_contain">
-        <NavBar />
+        <InterpretNavBar />
         </div>
 
         <div className="row">
@@ -24,4 +25,4 @@ const App = React.createClass({
   }
 })
 
-module.exports = App;
+module.exports = InterpretApp;
