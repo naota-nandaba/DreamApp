@@ -77,8 +77,6 @@ const DreamForm = React.createClass({
       });
     }
 
-    console.log(this.state.post.body);
-
     const {name, value} = e.target;
 
     this.setState(({post}) => {

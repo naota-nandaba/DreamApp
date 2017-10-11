@@ -3,27 +3,25 @@ import ReactDOM from 'react-dom';
 import { Router, IndexRoute, Route, hashHistory } from 'react-router'
 const storiesOf = require('@storybook/react').storiesOf;
 
-import DreamForm from './add_dream'
-import DreamFeed from './dream_feed'
-import Footer from './footer'
+import DreamForm from '../add_dream'
+import InterpretDreamFeed from './InterpretDream_Feed'
+import Footer from '../footer'
 
-import Utils from './utils';
+import Utils from '../utils';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import '../css/app.css'
+import '../../css/app.css'
 
 
-const Home = React.createClass({
+const InterpretHome = React.createClass({
 
   getInitialState() {
       return {
-        posts: [""],
+        posts: [],
         client: Utils.createClient()
       };
   },
 
-  //is called right before it is displayed/rendered
-  //React API
   componentWillMount: function () {
     this.refreshPosts();
   },
@@ -33,12 +31,11 @@ const Home = React.createClass({
 
       <div>
 
-        <div className="container-fluid app">
-          <DreamForm onSave= { this.addPost } charCount={140}/>
-          <DreamFeed posts= {this.state.posts} />
+        <div className="container app">
+          <InterpretDreamFeed posts= {this.state.posts} />
         </div>
 
-        <div className="container-fluid foot_contain">
+        <div className="container foot_contain">
           <Footer/>
         </div>
 
@@ -50,8 +47,6 @@ const Home = React.createClass({
   refreshPosts: function () {
     this.state.client.posts(this.props.params || {})
       .then((posts) => {
-        console.log(posts)
-        // this.props.router.replace('/posts');
         this.setState({posts: posts})
       });
     },
@@ -64,4 +59,4 @@ const Home = React.createClass({
 
 })
 
-module.exports = Home;
+module.exports = InterpretHome;
