@@ -41,7 +41,7 @@ const DreamForm = React.createClass({
               <text
                 className="char_count"
                 style={this.state.char_color}>
-                {this.props.charCount - this.state.post.body.length}</text>
+                <b>{this.props.charCount - this.state.post.body.length}</b></text>
 
           </form>
 
@@ -64,7 +64,7 @@ const DreamForm = React.createClass({
 
   onChange(e) {
 
-    if (e.target.value.length <= 140){
+    if (e.target.value.length <= 141){
       this.setState({
         disabled: "",
         char_color: {color: 'black'}

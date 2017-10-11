@@ -2,60 +2,84 @@
     .container{
         max-width: 500px;
     }
+
+    .navpills{
+        max-width: 350px;
+    }
 }
 
-@import url('https://fonts.googleapis.com/css?family=Lato|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Lato|Raleway|Bungee|Bungee+Hairline');
+
 body{
-  background-color: #487190;
-  font-family: Helvetica;
+  /*background-color: #E3D5C7;*/
+  background-color: #FFF8E7;
+    font-family: 'Bungee Hairline', cursive;
+}
+
+.pull-right{
+  color: white;
+  margin: 10px;
 }
 
 /*Container*/
 div.app{
-  background-color: #A2BDD1;
+  background-color: #FFD5C7;
 }
 
 /*NavBar*/
 
+p.logo{
+  font-family: 'Bungee Hairline', cursive;
+  font-size: 28px;
+}
+
+a{
+  background-color:
+}
+
 .navbar{
   margin-top: 10px;
-  background-color: #2C5778;
-  font-family: Helvetica;
+  background-color: #FFA98A;
+  font-family: Lato;
 }
 
 .nav_contain{
-  background-color: #2C5778;
+  background-color: #FFA98A;
 }
 
 .navbar-header{
-  background-color: #2C5778;
+  background-color: #FFFFFF;
 }
 
-ul.nav-pills{
-  margin: 5px;
+.nav-pills .active a,
+.nav-pills .active a:hover{
+  background-color: #BA656D;
 }
 
-li{
+li .active a,
+li .active a:hover{
   color: white;
+  background-color: #BA656D;
 }
 
 li.active{
-  font-family: Helvetica;
+  font-family: 'Bungee Hairline', cursive;
 }
 
 li.unactive{
-  font-family: Helvetica;
+  font-family: 'Bungee Hairline', cursive;
+  color: white;
 }
 
 a.myMu{
-  font-family: Helvetica;
-  background-color: #46728D;
+  font-family: 'Bungee Hairline', cursive;
+  background-color: #F3AD9A;
   font-size: 14px;
   color: white;
 }
 
 a.interpret{
-  font-family: Helvetica;
+  font-family: 'Bungee Hairline', cursive;
   font-size: 14px;
   border: 1px #B2C7D3 solid;
   color: white;
@@ -66,7 +90,7 @@ a.interpret:hover{
 }
 
 a.whyMu{
-  font-family: Helvetica;
+  font-family: 'Bungee Hairline', cursive;
   font-size: 14px;
   border: 1px #B2C7D3 solid;
   color: white;
@@ -78,7 +102,7 @@ a.whyMu:hover{
 
 /*DreamForm*/
 .add_dream{
-  background-color: #A4BDD3;
+  background-color: #FFD5C7;
   padding: 15px;
   margin: auto;
   margin-top: 25px;
@@ -86,30 +110,42 @@ a.whyMu:hover{
   justify-content: center;
 }
 
-button.add_btn{
-  margin: 5px;
-  font-family: Helvetica;
+button.add_btn:hover{
+  background-color: #CC747A;
+  border-color: #FF9E91;
+  color: white;
 }
 
 input.add_input{
   margin: 5px;
-  font-family: Helvetica;
+  font-family: 'Bungee Hairline', cursive;
   font-size: 14px;
+  border-width: 1px;
+  border-color: #DFC2C2;
 }
 
-p.char_count{
+text{
   text-align: right;
   align-items: right;
   align-self: right;
   justify-content: right;
-  font-family: Helvetica;
+  font-family: 'Bungee Hairline', cursive;
+  color: white;
   font-size: 14px;
+}
+
+button.btn{
+  background-color: #BA656D;
+  border-color: #C17C97;
+  border-width: 1px;
+  margin: 5px;
+  font-family: 'Bungee Hairline', cursive;
 }
 
 /*DreamFeed*/
 
 .dream_feed{
-  background-color: #A4BDD3;
+  background-color: #FFD5C7;
   padding: 15px;
   margin: auto;
   align-self: center;
@@ -120,9 +156,9 @@ p.char_count{
 .dream{
   margin: 1px;
   border-style: solid;
-  border-width: 2px;
-  background-color: #B8D1DD;
-  border-color: #B2C7D3;
+  border-width: 1px;
+  background-color: #FFFFFF;
+  border-color: #DFC2C2;
 }
 
 /*p.dream_content_time{
@@ -132,21 +168,24 @@ p.char_count{
 }*/
 
 p.dream_content{
-  font-size: 14px;
+  font-size: 21px;
+  font-family: 'Bungee Hairline', cursive;
+  color: #152033;
   padding: 5px;
   margin: 5px;
+  color: black;
 }
 
 /*Footer*/
 
 div.foot_contain{
-  background-color: #2C5778;
+  background-color: #FFA98A;
 }
 
 a.footer-brand{
   align-content: right;
   justify-content: right;
-  font-family: Helvetica;
+  font-family: 'Bungee Hairline', cursive;
   font-size: 14px;
   color: white;
 }

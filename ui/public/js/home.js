@@ -33,12 +33,12 @@ const Home = React.createClass({
 
       <div>
 
-        <div className="container app">
+        <div className="container-fluid app">
           <DreamForm onSave= { this.addPost } charCount={140}/>
           <DreamFeed posts= {this.state.posts } />
         </div>
 
-        <div className="container foot_contain">
+        <div className="container-fluid foot_contain">
           <Footer/>
         </div>
 
