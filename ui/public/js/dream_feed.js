@@ -14,14 +14,17 @@ const DreamFeed = React.createClass({
 
     const dreamList = this.props.posts.map((val) =>(
       <div>
+      Oct 31
       <Dream value={val.body} />
         <p></p>
       </div>
     ));
 
+    dreamList.reverse();
+
     return (
           <div className="col-xs-12 jumbotron row dream_feed">
-            {dreamList}
+          {dreamList}
           </div>
     )
   },
