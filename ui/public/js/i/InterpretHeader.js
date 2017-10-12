@@ -20,6 +20,9 @@ const InterpretNavBar = React.createClass({
             </ul>
 
           </div>
+
+          <p className="pull-right logo">mu</p>
+
         </nav>
     )
   }

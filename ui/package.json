@@ -1,12 +1,12 @@
 {
-  "name": "webpack_example_2",
+  "name": "DreamApp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "clean": "rm public/app/bundle.js",
+    "clean": "rm public/js/bundle.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "git-open": "git open"
   },
@@ -19,6 +19,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "css-loader": "^0.28.7",
+    "moment": "^2.19.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.2",
     "react-redux": "^5.0.6",

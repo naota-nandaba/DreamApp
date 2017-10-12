@@ -16,14 +16,19 @@ const NavBar = React.createClass({
             <div className="navbar-header">
 
             <ul className="nav nav-pills" role="tablist">
-              <li role="presentation" className="active"> <Link to="/#">My Mu</Link></li>
+              <li role="presentation" className="active" data-toggle="tab"> <Link to="/#">My Mu</Link></li>
               <li role="presentation" className="unactive"> <Link to="/interpret">Interpret</Link></li>
+              <li role="presentation" className="unactive"> <Link to="/blog">Why Mu?</Link></li>
             </ul>
 
           </div>
+
+          <p className="pull-right logo">mu</p>
+
         </nav>
     )
   }
 })
 
 module.exports = NavBar;
+  
