@@ -7,6 +7,8 @@ const storiesOf = require('@storybook/react').storiesOf;
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/app.css'
 
+import Anime from 'react-anime';
+
 const NavBar = React.createClass({
   render: function () {
     return (
@@ -23,7 +25,10 @@ const NavBar = React.createClass({
 
           </div>
 
+          <Anime delay={(e, i) => i * 100}
+        scale={[.1, .9]}>
           <p className="pull-right logo">mu</p>
+          </Anime>
 
         </nav>
     )
@@ -31,4 +36,3 @@ const NavBar = React.createClass({
 })
 
 module.exports = NavBar;
-  

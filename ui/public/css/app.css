@@ -63,6 +63,7 @@ ul.nav-pills{
 
 li.active{
   font-family: 'Bungee', cursive;
+  margin: 5px 5px 0px 5px;
 }
 
 li.unactive{
@@ -72,15 +73,13 @@ li.unactive{
   border-color: green;
   background-color: white;
   color: white;
+  margin: 7px 5px 0px 5px;
 }
 
 a.myMu{
   font-family: 'Bungee', cursive;
-  background-color: white;
-}
-
-a.myMu{
   font-size: 14px;
+  background-color: white;
   color: white;
 }
 
@@ -91,19 +90,11 @@ a.interpret{
   color: white;
 }
 
-a.interpret:hover{
-  color: black;
-}
-
 a.whyMu{
   font-family: 'Bungee', cursive;
   font-size: 14px;
   border: 1px #B2C7D3 solid;
   color: white;
-}
-
-a.whyMu:hover{
-  color: black;
 }
 
 /*DreamForm*/
@@ -165,13 +156,15 @@ a.ilink{
 /*Dream*/
 
 text.date{
-  font-family: 'Bungee Hairline';
-  color: white;
+  font-family: 'Bungee';
+  font-size: 14px;
+  color: black;
 }
 
 text.interpretText{
-  font-size: 21px;
-  color: red;
+  font-size: 16px;
+  font-family: 'Bungee Inline';
+  color: black;
 }
 
 .dream{
@@ -183,7 +176,7 @@ text.interpretText{
 }
 
 p.dream_content{
-  font-size: 21px;
+  font-size: 16px;
   font-family: 'Bungee', cursive;
   color: #152033;
   padding: 5px;
