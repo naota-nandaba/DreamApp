@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Router, IndexRoute, Route, hashHistory } from 'react-router'
 
 import InterpretNavBar from './InterpretHeader'
-import NavBar from '../header'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '../../css/app.css'
