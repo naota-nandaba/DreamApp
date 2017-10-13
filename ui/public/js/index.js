@@ -20,7 +20,7 @@ import '../css/app.css'
 
 // Wait for the window to load
 
-window.onload = function() {
+window.onload = function () {
   const DreamApp = document.querySelector('#App');
 
   ReactDOM.render(
@@ -32,6 +32,10 @@ window.onload = function() {
 
     <Route path="/interpret" component={InterpretApp}>
       <IndexRoute component={InterpretHome}/>
+    </Route>
+
+    <Route path="/blog" component={bApp}>
+      <IndexRoute component={bHome}/>
     </Route>
 
   </Router>, DreamApp);

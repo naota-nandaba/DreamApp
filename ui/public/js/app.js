@@ -15,7 +15,7 @@ const App = React.createClass({
         <NavBar />
         </div>
 
-        <div className="row">
+        <div>
             {this.props.children}
         </div>
 

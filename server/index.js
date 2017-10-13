@@ -75,40 +75,14 @@ app.post('/api/users/', function (req, res) {
 app.use('/api', require('./routes/posts'))
 
   //INTERPRET (SCRAPER)
-app.get('/test', function(req, res) {
+app.get('/interpret/:val', function(req, res) {
 
-  var str = "Macaroni"
+  var str = req.params.val;
+  console.log(str);
 
-  var splitStr = str.split(" ");
+  new Promise(function(resolve, reject) {
 
-  splitStr.forEach(function(el){
-    el.replace(/\.$/, " ");
-  })
-
-  var newStr = splitStr.filter(function (el){
-    return el !== 'A'
-    && el !== 'the'
-    && el !== 'and'
-    && el !== 'to'
-    && el !== 'a'
-    && el !== 'on'
-    && el !== 'I'
-    && el !== 'was'
-    && el !== 'an'
-    && el !== 'that'
-    && el !== 'is';
-  })
-
-  console.log(newStr);
-  newStr.forEach(function(el) {
-
-    console.log(el)
-    console.log('http://dreammoods.com/cgibin/dreamdictionarysearch.pl?method=exact&header=dreamsymbol&search=' + el);
-    console.log("Setting Promise")
-
-    return new Promise(function(resolve, reject) {
-
-      request('http://dreammoods.com/cgibin/dreamdictionarysearch.pl?method=exact&header=dreamsymbol&search=' + el, {
+      request('http://dreammoods.com/cgibin/dreamdictionarysearch.pl?method=exact&header=dreamsymbol&search=' + str, {
         timeout: 2000
       }, function interpreter(err, response, body) {
 
@@ -117,26 +91,31 @@ app.get('/test', function(req, res) {
           console.log("Logging request errors:")
           console.log(err.code === 'ETIMEDOUT'); //Is it a timeout error?
           console.log(err.connect === true); //Is it a connect timeout error?
-          resolve('')
+          res.send("No matches found.")
+        } else if (!body){
+          console.log('No matches found.')
+          res.send("No matches found.")
         } else {
           console.log("Starting cheerio...")
 
           const $ = cheerio.load(body);
 
-          el = el.charAt(0).toUpperCase() + (el.slice(1, el.length));
+          str = str.charAt(0).toUpperCase() + (str.slice(1, str.length));
 
           $doc = $('td[width=750]');
 
-          var regex = new RegExp("\\b" + el + "\\b")
+          var regex = new RegExp("\\b" + str + "\\b")
 
-          for (var j = 0; j < $doc.children().length; j++) {
+          for (var j = 0; j <= $doc.children().length; j++) {
             if ($doc.children().eq(j).text().match(regex)) {
-              console.log($doc.children().eq(j).text())
-              console.log("")
               console.log("Sending...")
-              res.send($doc.children().eq(j).text())
+              return  res.send($doc.children().eq(j).text())
             }
           }
+
+          console.log("For loop ended, No matches found")
+          res.send("No matches found.")
+
 
           //request end
         }
@@ -146,9 +125,6 @@ app.get('/test', function(req, res) {
 
       //Promise end
     })
-
-    //newStr.forEach end
-  })
 
   //app.get '/' end
 });

@@ -51,7 +51,6 @@ const Home = React.createClass({
     this.state.client.posts(this.props.params || {})
       .then((posts) => {
         console.log(posts)
-        // this.props.router.replace('/posts');
         this.setState({posts: posts})
       });
     },

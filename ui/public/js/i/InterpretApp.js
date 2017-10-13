@@ -16,7 +16,7 @@ const InterpretApp = React.createClass({
         <InterpretNavBar />
         </div>
 
-        <div className="row">
+        <div>
             {this.props.children}
         </div>
 
