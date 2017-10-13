@@ -37,7 +37,8 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 4096
+              //max bytes on any image
+              limit: 200000
             }
           }
         ]

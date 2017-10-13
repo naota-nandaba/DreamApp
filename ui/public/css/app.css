@@ -21,6 +21,10 @@ body{
   margin: 10px;
 }
 
+h4{
+  color: #2D7BB2;
+}
+
 /*Container*/
 div.app{
   background-color: #FFD5C7;
@@ -151,6 +155,45 @@ button.btn{
 
 a.ilink{
   color: #2D7BB2;
+}
+
+/*BlogFeed*/
+.benefit{
+  margin: 3px;
+}
+
+img.jung{
+  padding-top: 20px;
+}
+
+.benefits{
+  padding-top: 20px;
+}
+
+.history{
+  color: black;
+  margin: 3px;
+}
+
+img.freud{
+  margin-top: 20px;
+  margin-left: 15px;
+  padding-bottom: 40px;
+  padding-left: 10px;
+}
+
+ul.history-ul{
+  float: right;
+  margin-right: 20px;
+}
+
+ul.further-reading{
+  padding-bottom: 20px;
+  padding-right: 20px;
+}
+
+.reading{
+  margin: 3px;
 }
 
 /*Dream*/

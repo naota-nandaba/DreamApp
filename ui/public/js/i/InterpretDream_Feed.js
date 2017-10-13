@@ -1,6 +1,6 @@
 import React from 'react'
 import { Router, IndexRoute, Route, hashHistory } from 'react-router'
-const storiesOf = require('@storybook/react').storiesOf;  
+const storiesOf = require('@storybook/react').storiesOf;
 
 import request from 'request-promise';
 
@@ -36,7 +36,10 @@ const InterpretDreamFeed = React.createClass({
 
         val.body.split(" ").map((el) => {
           var src = "http://localhost:8000/interpret".concat("/" + el);
-          var badWords = ['A', 'the', 'and', 'to', 'a', 'on', 'I', 'was', 'an', 'that', 'is'];
+          var badWords = ['A', 'the', 'and', 'to', 'a', 'on', 'I', 'was', 'an',
+          'that', 'is', 'of', 'from', 'about', 'were', 'in', 'my', 'we\'re', 'all',
+        'over', 'around', 'near', 'them', 'might', 'this', 'again', 'into', 'at', 'are',
+      'like', 'this', 'but', '/w', 'made', 'it', 'go', 'with', 'someone', 'i\'m', 'some', 'me'];
 
           if (badWords.indexOf(el) === -1) {
           return <a className="ilink"

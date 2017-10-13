@@ -12,7 +12,7 @@ const Footer = React.createClass({
 
       <nav className="navbar navbar-bottom">
           <a className="navbar-brand footer-brand"
-             href="#"> © Naota Nandaba 2017 </a>
+             href="https://github.com/naota-nandaba/"> © Naota Nandaba 2017 </a>
       </nav>
 
     )

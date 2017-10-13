@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
+const path = require('path');
+const PUBLIC_UI = path.join(__dirname, '../ui/public')
 
+console.log(PUBLIC_UI);
+app.use(express.static(PUBLIC_UI))
 const PORT = process.env.PORT || 8000;
 
 // const knex = require('./middleware/knex');
